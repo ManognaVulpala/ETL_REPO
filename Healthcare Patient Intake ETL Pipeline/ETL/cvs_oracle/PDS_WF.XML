@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <!DOCTYPE POWERMART SYSTEM "powrmart.dtd">
-<POWERMART CREATION_DATE="07/25/2025 13:13:13" REPOSITORY_VERSION="188.97">
+<POWERMART CREATION_DATE="07/30/2025 17:57:15" REPOSITORY_VERSION="188.97">
 <REPOSITORY NAME="PCRS_1041" VERSION="188" CODEPAGE="MS1252" DATABASETYPE="Oracle">
-<FOLDER NAME="HealthcarePatientIntake" GROUP="" OWNER="Administrator" SHARED="NOTSHARED" DESCRIPTION="" PERMISSIONS="rwx---r--" UUID="5b1e0305-c2e3-46e4-9fad-73a1f5551b0a">
+<FOLDER NAME="CSV_ORA_ETL_PROJ" GROUP="" OWNER="Administrator" SHARED="NOTSHARED" DESCRIPTION="" PERMISSIONS="rwx---r--" UUID="c4952d2d-b004-4c84-9144-619f3c6d4cb7">
     <CONFIG DESCRIPTION ="Default session configuration object" ISDEFAULT ="YES" NAME ="default_session_config" VERSIONNUMBER ="1">
         <ATTRIBUTE NAME ="Advanced" VALUE =""/>
         <ATTRIBUTE NAME ="Constraint based load ordering" VALUE ="NO"/>
@@ -44,17 +44,16 @@
         <ATTRIBUTE NAME ="Session on Grid" VALUE =""/>
         <ATTRIBUTE NAME ="Is Enabled" VALUE ="NO"/>
     </CONFIG>
-    <WORKFLOW DESCRIPTION ="" ISENABLED ="YES" ISRUNNABLESERVICE ="NO" ISSERVICE ="NO" ISVALID ="YES" NAME ="PatientData_WF" REUSABLE_SCHEDULER ="NO" SCHEDULERNAME ="Scheduler" SERVERNAME ="PCIS_1041" SERVER_DOMAINNAME ="Domain" SUSPEND_ON_ERROR ="NO" TASKS_MUST_RUN_ON_SERVER ="NO" VERSIONNUMBER ="1">
+    <WORKFLOW DESCRIPTION ="" ISENABLED ="YES" ISRUNNABLESERVICE ="NO" ISSERVICE ="NO" ISVALID ="YES" NAME ="PDS_WF" REUSABLE_SCHEDULER ="NO" SCHEDULERNAME ="Scheduler" SERVERNAME ="PCIS_1041" SERVER_DOMAINNAME ="Domain" SUSPEND_ON_ERROR ="NO" TASKS_MUST_RUN_ON_SERVER ="NO" VERSIONNUMBER ="1">
         <SCHEDULER DESCRIPTION ="" NAME ="Scheduler" REUSABLE ="NO" VERSIONNUMBER ="1">
             <SCHEDULEINFO SCHEDULETYPE ="ONDEMAND"/>
         </SCHEDULER>
         <TASK DESCRIPTION ="" NAME ="Start" REUSABLE ="NO" TYPE ="Start" VERSIONNUMBER ="1"/>
-        <SESSION DESCRIPTION ="" ISVALID ="YES" MAPPINGNAME ="Sorting_PatientData" NAME ="s_Sorting_PatientData" REUSABLE ="NO" SORTORDER ="Binary" VERSIONNUMBER ="1">
-            <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="YES" PARTITIONTYPE ="PASS THROUGH" PIPELINE ="1" SINSTANCENAME ="raw_patient_intake_trg" STAGE ="1" TRANSFORMATIONNAME ="raw_patient_intake_trg" TRANSFORMATIONTYPE ="Target Definition">
-                <FLATFILE CODEPAGE ="MS1252" CONSECDELIMITERSASONE ="NO" DELIMITED ="YES" DELIMITERS ="," ESCAPE_CHARACTER ="" KEEPESCAPECHAR ="NO" LINESEQUENTIAL ="NO" MULTIDELIMITERSASAND ="NO" NULLCHARTYPE ="ASCII" NULL_CHARACTER ="*" PADBYTES ="1" QUOTE_CHARACTER ="DOUBLE" REPEATABLE ="NO" ROWDELIMITER ="0" SKIPROWS ="1" STRIPTRAILINGBLANKS ="NO"/>
-            </SESSTRANSFORMATIONINST>
+        <SESSION DESCRIPTION ="" ISVALID ="YES" MAPPINGNAME ="PDS_MAPPING" NAME ="s_PDS_MAPPING" REUSABLE ="NO" SORTORDER ="Binary" VERSIONNUMBER ="1">
+            <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="0" SINSTANCENAME ="PATIENT_DATA_ETL" STAGE ="0" TRANSFORMATIONNAME ="PATIENT_DATA_ETL" TRANSFORMATIONTYPE ="Target Definition"/>
+            <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="YES" PARTITIONTYPE ="PASS THROUGH" PIPELINE ="1" SINSTANCENAME ="PATIENT_DATA_ETL1" STAGE ="1" TRANSFORMATIONNAME ="PATIENT_DATA_ETL1" TRANSFORMATIONTYPE ="Target Definition"/>
             <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="0" SINSTANCENAME ="raw_patient_intake_src" STAGE ="0" TRANSFORMATIONNAME ="raw_patient_intake_src" TRANSFORMATIONTYPE ="Source Definition">
-                <FLATFILE CODEPAGE ="MS1252" CONSECDELIMITERSASONE ="NO" DELIMITED ="YES" DELIMITERS ="," ESCAPE_CHARACTER ="" KEEPESCAPECHAR ="NO" LINESEQUENTIAL ="NO" MULTIDELIMITERSASAND ="NO" NULLCHARTYPE ="ASCII" NULL_CHARACTER ="*" PADBYTES ="1" QUOTE_CHARACTER ="DOUBLE" REPEATABLE ="NO" ROWDELIMITER ="0" SKIPROWS ="1" STRIPTRAILINGBLANKS ="NO"/>
+                <FLATFILE CODEPAGE ="MS1252" CONSECDELIMITERSASONE ="NO" DELIMITED ="YES" DELIMITERS ="," ESCAPE_CHARACTER ="" KEEPESCAPECHAR ="NO" LINESEQUENTIAL ="NO" MULTIDELIMITERSASAND ="YES" NULLCHARTYPE ="ASCII" NULL_CHARACTER ="*" PADBYTES ="1" QUOTE_CHARACTER ="DOUBLE" REPEATABLE ="NO" ROWDELIMITER ="0" SKIPROWS ="1" STRIPTRAILINGBLANKS ="NO"/>
             </SESSTRANSFORMATIONINST>
             <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="YES" PARTITIONTYPE ="PASS THROUGH" PIPELINE ="1" SINSTANCENAME ="SQ_raw_patient_intake_src" STAGE ="2" TRANSFORMATIONNAME ="SQ_raw_patient_intake_src" TRANSFORMATIONTYPE ="Source Qualifier"/>
             <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="1" SINSTANCENAME ="EXPTRANS" STAGE ="2" TRANSFORMATIONNAME ="EXPTRANS" TRANSFORMATIONTYPE ="Expression">
@@ -63,28 +62,21 @@
             <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="1" SINSTANCENAME ="FILTRANS" STAGE ="2" TRANSFORMATIONNAME ="FILTRANS" TRANSFORMATIONTYPE ="Filter">
                 <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
             </SESSTRANSFORMATIONINST>
-            <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="1" SINSTANCENAME ="sorter" STAGE ="2" TRANSFORMATIONNAME ="sorter" TRANSFORMATIONTYPE ="Sorter">
+            <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="1" SINSTANCENAME ="SRTTRANS" STAGE ="2" TRANSFORMATIONNAME ="SRTTRANS" TRANSFORMATIONTYPE ="Sorter">
                 <PARTITION DESCRIPTION ="" NAME ="Partition #1"/>
             </SESSTRANSFORMATIONINST>
             <CONFIGREFERENCE REFOBJECTNAME ="default_session_config" TYPE ="Session config"/>
-            <SESSIONEXTENSION NAME ="File Writer" SINSTANCENAME ="raw_patient_intake_trg" SUBTYPE ="File Writer" TRANSFORMATIONTYPE ="Target Definition" TYPE ="WRITER">
-                <CONNECTIONREFERENCE CNXREFNAME ="Connection" CONNECTIONNAME ="" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="" CONNECTIONTYPE ="" VARIABLE =""/>
-                <ATTRIBUTE NAME ="Merge Type" VALUE ="No Merge"/>
-                <ATTRIBUTE NAME ="Merge File Directory" VALUE ="$PMTargetFileDir&#x5c;"/>
-                <ATTRIBUTE NAME ="Merge File Name" VALUE ="raw_patient_intake_trg.out"/>
-                <ATTRIBUTE NAME ="Append if Exists" VALUE ="NO"/>
-                <ATTRIBUTE NAME ="Create Target Directory" VALUE ="NO"/>
-                <ATTRIBUTE NAME ="Header Options" VALUE ="Output Field Names"/>
-                <ATTRIBUTE NAME ="Header Command" VALUE =""/>
-                <ATTRIBUTE NAME ="Footer Command" VALUE =""/>
-                <ATTRIBUTE NAME ="Output Type" VALUE ="File"/>
-                <ATTRIBUTE NAME ="Merge Command" VALUE =""/>
-                <ATTRIBUTE NAME ="Output file directory" VALUE ="C:&#x5c;Informatica&#x5c;10.4.1&#x5c;server&#x5c;infa_shared&#x5c;TgtFiles"/>
-                <ATTRIBUTE NAME ="Output filename" VALUE ="raw_patient_intake_trg.out"/>
+            <SESSIONEXTENSION NAME ="Relational Writer" SINSTANCENAME ="PATIENT_DATA_ETL1" SUBTYPE ="Relational Writer" TRANSFORMATIONTYPE ="Target Definition" TYPE ="WRITER">
+                <CONNECTIONREFERENCE CNXREFNAME ="DB Connection" CONNECTIONNAME ="TRG" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="Oracle" CONNECTIONTYPE ="Relational" VARIABLE =""/>
+                <ATTRIBUTE NAME ="Target load type" VALUE ="Bulk"/>
+                <ATTRIBUTE NAME ="Insert" VALUE ="YES"/>
+                <ATTRIBUTE NAME ="Update as Update" VALUE ="YES"/>
+                <ATTRIBUTE NAME ="Update as Insert" VALUE ="NO"/>
+                <ATTRIBUTE NAME ="Update else Insert" VALUE ="NO"/>
+                <ATTRIBUTE NAME ="Delete" VALUE ="YES"/>
+                <ATTRIBUTE NAME ="Truncate target table option" VALUE ="YES"/>
                 <ATTRIBUTE NAME ="Reject file directory" VALUE ="$PMBadFileDir&#x5c;"/>
-                <ATTRIBUTE NAME ="Reject filename" VALUE ="raw_patient_intake_trg1.bad"/>
-                <ATTRIBUTE NAME ="Command" VALUE =""/>
-                <ATTRIBUTE NAME ="Codepage Parameter" VALUE =""/>
+                <ATTRIBUTE NAME ="Reject filename" VALUE ="patient_data_etl11.bad"/>
             </SESSIONEXTENSION>
             <SESSIONEXTENSION DSQINSTNAME ="SQ_raw_patient_intake_src" DSQINSTTYPE ="Source Qualifier" NAME ="File Reader" SINSTANCENAME ="raw_patient_intake_src" SUBTYPE ="File Reader" TRANSFORMATIONTYPE ="Source Definition" TYPE ="READER">
                 <CONNECTIONREFERENCE CNXREFNAME ="Connection" CONNECTIONNAME ="" CONNECTIONNUMBER ="1" CONNECTIONSUBTYPE ="" CONNECTIONTYPE ="" VARIABLE =""/>
@@ -92,7 +84,7 @@
                 <ATTRIBUTE NAME ="Concurrent read partitioning" VALUE ="Optimize throughput"/>
                 <ATTRIBUTE NAME ="Command Type" VALUE ="Command Generating Data"/>
                 <ATTRIBUTE NAME ="Source filetype" VALUE ="Direct"/>
-                <ATTRIBUTE NAME ="Source file directory" VALUE ="C:&#x5c;Informatica&#x5c;10.4.1&#x5c;server&#x5c;infa_shared&#x5c;SrcFiles"/>
+                <ATTRIBUTE NAME ="Source file directory" VALUE ="$PMSourceFileDir&#x5c;"/>
                 <ATTRIBUTE NAME ="Source filename" VALUE ="raw_patient_intake_src.csv"/>
                 <ATTRIBUTE NAME ="Command" VALUE =""/>
                 <ATTRIBUTE NAME ="File Reader Truncate String Null" VALUE ="NO"/>
@@ -101,7 +93,7 @@
             <SESSIONEXTENSION NAME ="File Reader" SINSTANCENAME ="SQ_raw_patient_intake_src" SUBTYPE ="File Reader" TRANSFORMATIONTYPE ="Source Qualifier" TYPE ="READER"/>
             <ATTRIBUTE NAME ="General Options" VALUE =""/>
             <ATTRIBUTE NAME ="Write Backward Compatible Session Log File" VALUE ="NO"/>
-            <ATTRIBUTE NAME ="Session Log File Name" VALUE ="s_Sorting_PatientData.log"/>
+            <ATTRIBUTE NAME ="Session Log File Name" VALUE ="s_PDS_MAPPING.log"/>
             <ATTRIBUTE NAME ="Session Log File directory" VALUE ="$PMSessionLogDir&#x5c;"/>
             <ATTRIBUTE NAME ="Parameter Filename" VALUE =""/>
             <ATTRIBUTE NAME ="Enable Test Load" VALUE ="NO"/>
@@ -127,30 +119,30 @@
             <ATTRIBUTE NAME ="Allow Pushdown for User Incompatible Connections" VALUE ="NO"/>
         </SESSION>
         <TASKINSTANCE DESCRIPTION ="" ISENABLED ="YES" NAME ="Start" REUSABLE ="NO" TASKNAME ="Start" TASKTYPE ="Start"/>
-        <TASKINSTANCE DESCRIPTION ="" FAIL_PARENT_IF_INSTANCE_DID_NOT_RUN ="NO" FAIL_PARENT_IF_INSTANCE_FAILS ="NO" ISENABLED ="YES" NAME ="s_Sorting_PatientData" REUSABLE ="NO" TASKNAME ="s_Sorting_PatientData" TASKTYPE ="Session" TREAT_INPUTLINK_AS_AND ="YES"/>
-        <WORKFLOWLINK CONDITION ="" FROMTASK ="Start" TOTASK ="s_Sorting_PatientData"/>
+        <TASKINSTANCE DESCRIPTION ="" FAIL_PARENT_IF_INSTANCE_DID_NOT_RUN ="NO" FAIL_PARENT_IF_INSTANCE_FAILS ="NO" ISENABLED ="YES" NAME ="s_PDS_MAPPING" REUSABLE ="NO" TASKNAME ="s_PDS_MAPPING" TASKTYPE ="Session" TREAT_INPUTLINK_AS_AND ="YES"/>
+        <WORKFLOWLINK CONDITION ="" FROMTASK ="Start" TOTASK ="s_PDS_MAPPING"/>
         <WORKFLOWVARIABLE DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="The time this task started" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$Start.StartTime" USERDEFINED ="NO"/>
         <WORKFLOWVARIABLE DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="The time this task completed" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$Start.EndTime" USERDEFINED ="NO"/>
         <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Status of this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$Start.Status" USERDEFINED ="NO"/>
         <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Status of the previous task that is not disabled" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$Start.PrevTaskStatus" USERDEFINED ="NO"/>
         <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Error code for this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$Start.ErrorCode" USERDEFINED ="NO"/>
         <WORKFLOWVARIABLE DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="Error message for this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$Start.ErrorMsg" USERDEFINED ="NO"/>
-        <WORKFLOWVARIABLE DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="The time this task started" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Sorting_PatientData.StartTime" USERDEFINED ="NO"/>
-        <WORKFLOWVARIABLE DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="The time this task completed" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Sorting_PatientData.EndTime" USERDEFINED ="NO"/>
-        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Status of this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Sorting_PatientData.Status" USERDEFINED ="NO"/>
-        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Status of the previous task that is not disabled" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Sorting_PatientData.PrevTaskStatus" USERDEFINED ="NO"/>
-        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Error code for this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Sorting_PatientData.ErrorCode" USERDEFINED ="NO"/>
-        <WORKFLOWVARIABLE DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="Error message for this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Sorting_PatientData.ErrorMsg" USERDEFINED ="NO"/>
-        <WORKFLOWVARIABLE DATATYPE ="bigint" DEFAULTVALUE ="" DESCRIPTION ="Rows successfully read" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Sorting_PatientData.SrcSuccessRows" USERDEFINED ="NO"/>
-        <WORKFLOWVARIABLE DATATYPE ="bigint" DEFAULTVALUE ="" DESCRIPTION ="Rows failed to read" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Sorting_PatientData.SrcFailedRows" USERDEFINED ="NO"/>
-        <WORKFLOWVARIABLE DATATYPE ="bigint" DEFAULTVALUE ="" DESCRIPTION ="Rows successfully loaded" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Sorting_PatientData.TgtSuccessRows" USERDEFINED ="NO"/>
-        <WORKFLOWVARIABLE DATATYPE ="bigint" DEFAULTVALUE ="" DESCRIPTION ="Rows failed to load" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Sorting_PatientData.TgtFailedRows" USERDEFINED ="NO"/>
-        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Total number of transformation errors" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Sorting_PatientData.TotalTransErrors" USERDEFINED ="NO"/>
-        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="First error code" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Sorting_PatientData.FirstErrorCode" USERDEFINED ="NO"/>
-        <WORKFLOWVARIABLE DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="First error message" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Sorting_PatientData.FirstErrorMsg" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="The time this task started" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_PDS_MAPPING.StartTime" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="The time this task completed" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_PDS_MAPPING.EndTime" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Status of this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_PDS_MAPPING.Status" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Status of the previous task that is not disabled" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_PDS_MAPPING.PrevTaskStatus" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Error code for this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_PDS_MAPPING.ErrorCode" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="Error message for this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_PDS_MAPPING.ErrorMsg" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="bigint" DEFAULTVALUE ="" DESCRIPTION ="Rows successfully read" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_PDS_MAPPING.SrcSuccessRows" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="bigint" DEFAULTVALUE ="" DESCRIPTION ="Rows failed to read" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_PDS_MAPPING.SrcFailedRows" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="bigint" DEFAULTVALUE ="" DESCRIPTION ="Rows successfully loaded" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_PDS_MAPPING.TgtSuccessRows" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="bigint" DEFAULTVALUE ="" DESCRIPTION ="Rows failed to load" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_PDS_MAPPING.TgtFailedRows" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Total number of transformation errors" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_PDS_MAPPING.TotalTransErrors" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="First error code" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_PDS_MAPPING.FirstErrorCode" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="First error message" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_PDS_MAPPING.FirstErrorMsg" USERDEFINED ="NO"/>
         <ATTRIBUTE NAME ="Parameter Filename" VALUE =""/>
         <ATTRIBUTE NAME ="Write Backward Compatible Workflow Log File" VALUE ="NO"/>
-        <ATTRIBUTE NAME ="Workflow Log File Name" VALUE ="PatientData_WF.log"/>
+        <ATTRIBUTE NAME ="Workflow Log File Name" VALUE ="PDS_WF.log"/>
         <ATTRIBUTE NAME ="Workflow Log File Directory" VALUE ="$PMWorkflowLogDir&#x5c;"/>
         <ATTRIBUTE NAME ="Save Workflow log by" VALUE ="By runs"/>
         <ATTRIBUTE NAME ="Save workflow log for these runs" VALUE ="0"/>

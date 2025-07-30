@@ -1,0 +1,25 @@
+2025-07-30 15:39:55 : INFO : (32912 | 14768) : (IS | PCIS_1041) : node01 : LM_36435 : Starting execution of workflow [PDS_WF] in folder [CSV_ORA_ETL_PROJ] last saved by user [Administrator].
+2025-07-30 15:39:55 : INFO : (32912 | 14768) : (IS | PCIS_1041) : node01 : LM_44206 : Workflow PDS_WF started with run id [54], run instance name [], run type [Concurrent Run Disabled].
+2025-07-30 15:39:55 : INFO : (32912 | 14768) : (IS | PCIS_1041) : node01 : LM_44195 : Workflow [PDS_WF] service level [SLPriority:5,SLDispatchWaitTime:1800].
+2025-07-30 15:39:55 : INFO : (32912 | 14768) : (IS | PCIS_1041) : node01 : LM_44253 : Workflow started. Clients will be notified
+2025-07-30 15:39:55 : INFO : (32912 | 14768) : (IS | PCIS_1041) : node01 : LM_36330 : Start task instance [Start]: Execution started.
+2025-07-30 15:39:55 : INFO : (32912 | 14768) : (IS | PCIS_1041) : node01 : LM_36318 : Start task instance [Start]: Execution succeeded.
+2025-07-30 15:39:55 : INFO : (32912 | 14768) : (IS | PCIS_1041) : node01 : LM_36505 : Link [Start --> s_PDS_MAPPING]: empty expression string, evaluated to TRUE.
+2025-07-30 15:39:55 : INFO : (32912 | 14768) : (IS | PCIS_1041) : node01 : LM_36388 : Session task instance [s_PDS_MAPPING] is waiting to be started.
+2025-07-30 15:39:55 : INFO : (32912 | 14768) : (IS | PCIS_1041) : node01 : LM_36682 : Session task instance [s_PDS_MAPPING]: started a process with pid [34700] on node [node01].
+2025-07-30 15:39:55 : INFO : (32912 | 14768) : (IS | PCIS_1041) : node01 : LM_36330 : Session task instance [s_PDS_MAPPING]: Execution started.
+2025-07-30 15:39:59 : INFO : (32912 | 26844) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_PDS_MAPPING] : [TM_6793 Fetching initialization properties from the Integration Service. : (Wed Jul 30 15:39:57 2025)]
+2025-07-30 15:39:59 : INFO : (32912 | 26844) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_PDS_MAPPING] : [DISP_20305 The [Preparer] DTM with process id [34700] is running on node [node01].
+ : (Wed Jul 30 15:39:57 2025)]
+2025-07-30 15:39:59 : INFO : (32912 | 26844) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_PDS_MAPPING] : [PETL_24036 Beginning the prepare phase for the session.]
+2025-07-30 15:39:59 : INFO : (32912 | 26844) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_PDS_MAPPING] : [TM_6721 Started [Connect to Repository].]
+2025-07-30 15:39:59 : INFO : (32912 | 26844) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_PDS_MAPPING] : [TM_6722 Finished [Connect to Repository].  It took [0.354404] seconds.]
+2025-07-30 15:39:59 : INFO : (32912 | 26844) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_PDS_MAPPING] : [TM_6794 Connected to repository [PCRS_1041] in domain [Domain] as user [Administrator] in security domain [Native].]
+2025-07-30 15:39:59 : INFO : (32912 | 26844) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_PDS_MAPPING] : [TM_6721 Started [Fetch Session from Repository].]
+2025-07-30 15:39:59 : INFO : (32912 | 26844) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_PDS_MAPPING] : [TM_6722 Finished [Fetch Session from Repository].  It took [0.260641] seconds.]
+2025-07-30 15:39:59 : INFO : (32912 | 26844) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_PDS_MAPPING] : [TM_6721 Started [Partition Group Formation].]
+2025-07-30 15:39:59 : INFO : (32912 | 26844) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_PDS_MAPPING] : [TM_6722 Finished [Partition Group Formation].  It took [0.0497839] seconds.]
+2025-07-30 15:39:59 : INFO : (32912 | 26844) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_PDS_MAPPING] : [PETL_24037 Finished the prepare phase for the session.]
+2025-07-30 15:39:59 : INFO : (32912 | 26844) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_PDS_MAPPING] : [TM_6792 Notifying the Integration Service that the prepare phase has been completed. : (Wed Jul 30 15:39:59 2025)]
+2025-07-30 15:40:01 : INFO : (32912 | 19400) : (IS | PCIS_1041) : node01 : LM_36318 : Session task instance [s_PDS_MAPPING]: Execution succeeded.
+2025-07-30 15:40:07 : INFO : (32912 | 30020) : (IS | PCIS_1041) : node01 : LM_36318 : Workflow [PDS_WF]: Execution succeeded.
