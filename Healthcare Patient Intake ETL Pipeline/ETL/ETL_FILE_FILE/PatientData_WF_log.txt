@@ -1,0 +1,25 @@
+2025-07-30 18:23:53 : INFO : (8156 | 8384) : (IS | PCIS_1041) : node01 : LM_36435 : Starting execution of workflow [PatientData_WF] in folder [HealthcarePatientIntake] last saved by user [Administrator].
+2025-07-30 18:23:53 : INFO : (8156 | 8384) : (IS | PCIS_1041) : node01 : LM_44206 : Workflow PatientData_WF started with run id [55], run instance name [], run type [Concurrent Run Disabled].
+2025-07-30 18:23:53 : INFO : (8156 | 8384) : (IS | PCIS_1041) : node01 : LM_44195 : Workflow [PatientData_WF] service level [SLPriority:5,SLDispatchWaitTime:1800].
+2025-07-30 18:23:53 : INFO : (8156 | 8384) : (IS | PCIS_1041) : node01 : LM_44253 : Workflow started. Clients will be notified
+2025-07-30 18:23:53 : INFO : (8156 | 8384) : (IS | PCIS_1041) : node01 : LM_36330 : Start task instance [Start]: Execution started.
+2025-07-30 18:23:53 : INFO : (8156 | 8384) : (IS | PCIS_1041) : node01 : LM_36318 : Start task instance [Start]: Execution succeeded.
+2025-07-30 18:23:53 : INFO : (8156 | 8384) : (IS | PCIS_1041) : node01 : LM_36505 : Link [Start --> s_Sorting_PatientData]: empty expression string, evaluated to TRUE.
+2025-07-30 18:23:53 : INFO : (8156 | 8384) : (IS | PCIS_1041) : node01 : LM_36388 : Session task instance [s_Sorting_PatientData] is waiting to be started.
+2025-07-30 18:23:53 : INFO : (8156 | 20600) : (IS | PCIS_1041) : node01 : LM_36682 : Session task instance [s_Sorting_PatientData]: started a process with pid [22016] on node [node01].
+2025-07-30 18:23:53 : INFO : (8156 | 20600) : (IS | PCIS_1041) : node01 : LM_36330 : Session task instance [s_Sorting_PatientData]: Execution started.
+2025-07-30 18:23:58 : INFO : (8156 | 17340) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_Sorting_PatientData] : [TM_6793 Fetching initialization properties from the Integration Service. : (Wed Jul 30 18:23:56 2025)]
+2025-07-30 18:23:58 : INFO : (8156 | 17340) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_Sorting_PatientData] : [DISP_20305 The [Preparer] DTM with process id [22016] is running on node [node01].
+ : (Wed Jul 30 18:23:56 2025)]
+2025-07-30 18:23:58 : INFO : (8156 | 17340) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_Sorting_PatientData] : [PETL_24036 Beginning the prepare phase for the session.]
+2025-07-30 18:23:58 : INFO : (8156 | 17340) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_Sorting_PatientData] : [TM_6721 Started [Connect to Repository].]
+2025-07-30 18:23:58 : INFO : (8156 | 17340) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_Sorting_PatientData] : [TM_6722 Finished [Connect to Repository].  It took [0.217746] seconds.]
+2025-07-30 18:23:58 : INFO : (8156 | 17340) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_Sorting_PatientData] : [TM_6794 Connected to repository [PCRS_1041] in domain [Domain] as user [Administrator] in security domain [Native].]
+2025-07-30 18:23:58 : INFO : (8156 | 17340) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_Sorting_PatientData] : [TM_6721 Started [Fetch Session from Repository].]
+2025-07-30 18:23:58 : INFO : (8156 | 17340) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_Sorting_PatientData] : [TM_6722 Finished [Fetch Session from Repository].  It took [0.138901] seconds.]
+2025-07-30 18:23:58 : INFO : (8156 | 17340) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_Sorting_PatientData] : [TM_6721 Started [Partition Group Formation].]
+2025-07-30 18:23:58 : INFO : (8156 | 17340) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_Sorting_PatientData] : [TM_6722 Finished [Partition Group Formation].  It took [0.0789409] seconds.]
+2025-07-30 18:23:58 : INFO : (8156 | 17340) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_Sorting_PatientData] : [PETL_24037 Finished the prepare phase for the session.]
+2025-07-30 18:23:58 : INFO : (8156 | 17340) : (IS | PCIS_1041) : node01 : LM_36488 : Session task instance [s_Sorting_PatientData] : [TM_6792 Notifying the Integration Service that the prepare phase has been completed. : (Wed Jul 30 18:23:58 2025)]
+2025-07-30 18:23:59 : INFO : (8156 | 25020) : (IS | PCIS_1041) : node01 : LM_36318 : Session task instance [s_Sorting_PatientData]: Execution succeeded.
+2025-07-30 18:24:05 : INFO : (8156 | 7564) : (IS | PCIS_1041) : node01 : LM_36318 : Workflow [PatientData_WF]: Execution succeeded.

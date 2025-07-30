@@ -1,0 +1,110 @@
+2025-07-30 18:23:58 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : TM_6014 : Initializing session [s_Sorting_PatientData] at [Wed Jul 30 18:23:58 2025].
+2025-07-30 18:23:58 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : TM_6683 : Repository Name: [PCRS_1041]
+2025-07-30 18:23:58 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : TM_6684 : Server Name: [PCIS_1041]
+2025-07-30 18:23:58 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : TM_6686 : Folder: [HealthcarePatientIntake]
+2025-07-30 18:23:58 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : TM_6685 : Workflow: [PatientData_WF] Run Instance Name: [] Run Id: [55]
+2025-07-30 18:23:58 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : TM_6992 : Operating System Type [NT]
+2025-07-30 18:23:58 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : TM_6101 : Mapping name: Sorting_PatientData.
+2025-07-30 18:23:58 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : TM_6964 : Date format for the Session is [MM/DD/YYYY HH24:MI:SS.US]
+2025-07-30 18:23:58 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : TM_6708 : Using configuration property [EnableDataEncryption,no]
+2025-07-30 18:23:58 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : TM_6708 : Using configuration property [StoreHAPersistenceInDB,no]
+2025-07-30 18:23:58 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : TM_6703 : Session [s_Sorting_PatientData] is run by 64-bit Integration Service  [node01], version [10.4.1], build [0614].
+2025-07-30 18:23:58 : INFO : (22016 | MANAGER) : (IS | PCIS_1041) : node01 : PETL_24091 : Thread [MANAGER] has the ID [1].
+2025-07-30 18:23:58 : INFO : (22016 | MANAGER) : (IS | PCIS_1041) : node01 : PETL_24058 : Running Partition Group [1].
+2025-07-30 18:23:58 : INFO : (22016 | MANAGER) : (IS | PCIS_1041) : node01 : PETL_24000 : Parallel Pipeline Engine initializing.
+2025-07-30 18:23:58 : INFO : (22016 | MONITOR) : (IS | PCIS_1041) : node01 : PETL_24091 : Thread [MONITOR] has the ID [2].
+2025-07-30 18:23:58 : INFO : (22016 | MANAGER) : (IS | PCIS_1041) : node01 : PETL_24001 : Parallel Pipeline Engine running.
+2025-07-30 18:23:58 : INFO : (22016 | MANAGER) : (IS | PCIS_1041) : node01 : PETL_24003 : Initializing session run.
+2025-07-30 18:23:58 : INFO : (22016 | MAPPING) : (IS | PCIS_1041) : node01 : PETL_24091 : Thread [MAPPING] has the ID [3].
+2025-07-30 18:23:58 : INFO : (22016 | MAPPING) : (IS | PCIS_1041) : node01 : CMN_1569 : Server Mode: [ASCII]
+2025-07-30 18:23:58 : INFO : (22016 | MAPPING) : (IS | PCIS_1041) : node01 : CMN_1570 : Server Code page: [MS Windows Latin 1 (ANSI), superset of Latin1]
+2025-07-30 18:23:58 : INFO : (22016 | MAPPING) : (IS | PCIS_1041) : node01 : TM_6151 : The session sort order is [Binary].
+2025-07-30 18:23:58 : INFO : (22016 | MAPPING) : (IS | PCIS_1041) : node01 : CMN_65111 : Current Timezone:[UTC -5:0]
+2025-07-30 18:23:58 : INFO : (22016 | MAPPING) : (IS | PCIS_1041) : node01 : CMN_65112 : Current Process ID:[22016]
+2025-07-30 18:23:58 : INFO : (22016 | MAPPING) : (IS | PCIS_1041) : node01 : TM_6156 : Using low precision processing.
+2025-07-30 18:23:58 : INFO : (22016 | MAPPING) : (IS | PCIS_1041) : node01 : TM_6180 : Deadlock retry logic will not be implemented.
+2025-07-30 18:23:58 : INFO : (22016 | MAPPING) : (IS | PCIS_1041) : node01 : TM_6187 : Session target-based commit interval is [10000].
+2025-07-30 18:23:58 : INFO : (22016 | MAPPING) : (IS | PCIS_1041) : node01 : TM_6307 : DTM error log disabled. 
+2025-07-30 18:23:58 : INFO : (22016 | MAPPING) : (IS | PCIS_1041) : node01 : TE_7022 : TShmWriter: Initialized
+2025-07-30 18:23:58 : INFO : (22016 | MAPPING) : (IS | PCIS_1041) : node01 : DBG_21693 : sorter: Cache size for partition [1] = [536870912]
+2025-07-30 18:23:58 : INFO : (22016 | MAPPING) : (IS | PCIS_1041) : node01 : SORT_40419 : For Transformation [sorter], memory used is [536870912] bytes and row size is 1064 bytes.
+2025-07-30 18:23:58 : INFO : (22016 | MAPPING) : (IS | PCIS_1041) : node01 : TM_6007 : DTM initialized successfully for session [s_Sorting_PatientData]
+2025-07-30 18:23:58 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : PETL_24033 : All DTM Connection Info: [<NONE>].
+2025-07-30 18:23:58 : INFO : (22016 | MANAGER) : (IS | PCIS_1041) : node01 : PETL_24004 : PETL_24004 Starting pre-session tasks. : (Wed Jul 30 18:23:58 2025)
+2025-07-30 18:23:58 : INFO : (22016 | PRE-SESS) : (IS | PCIS_1041) : node01 : PETL_24091 : Thread [PRE-SESS] has the ID [4].
+2025-07-30 18:23:58 : INFO : (22016 | MANAGER) : (IS | PCIS_1041) : node01 : PETL_24027 : PETL_24027 Pre-session task completed successfully. : (Wed Jul 30 18:23:58 2025)
+2025-07-30 18:23:58 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : PETL_24006 : Starting data movement.
+2025-07-30 18:23:58 : INFO : (22016 | MAPPING) : (IS | PCIS_1041) : node01 : TM_6660 : Total Buffer Pool size is 2579584 bytes and Block size is 141088 bytes.
+2025-07-30 18:23:58 : INFO : (22016 | READER_1_1_1) : (IS | PCIS_1041) : node01 : PETL_24091 : Thread [READER_1_1_1] has the ID [5].
+2025-07-30 18:23:58 : INFO : (22016 | READER_1_1_1) : (IS | PCIS_1041) : node01 : DBG_21437 : Reader: Source is a file-based source.
+2025-07-30 18:23:58 : INFO : (22016 | READER_1_1_1) : (IS | PCIS_1041) : node01 : FR_3118 : source [SQ_raw_patient_intake_src] code page: [MS Windows Latin 1 (ANSI), superset of Latin1]
+2025-07-30 18:23:58 : INFO : (22016 | READER_1_1_1) : (IS | PCIS_1041) : node01 : FR_3071 : Maximum Line sequential buffer length is 1299.
+2025-07-30 18:23:58 : INFO : (22016 | READER_1_1_1) : (IS | PCIS_1041) : node01 : BLKR_16003 : Initialization completed successfully.
+2025-07-30 18:23:58 : INFO : (22016 | TRANSF_1_1_1) : (IS | PCIS_1041) : node01 : PETL_24091 : Thread [TRANSF_1_1_1] has the ID [6].
+2025-07-30 18:23:58 : INFO : (22016 | WRITER_1_*_1) : (IS | PCIS_1041) : node01 : PETL_24091 : Thread [WRITER_1_*_1] has the ID [7].
+2025-07-30 18:23:58 : INFO : (22016 | WRITER_1_*_1) : (IS | PCIS_1041) : node01 : WRT_8124 : Target Table raw_patient_intake_trg :Writing output to: C:\Informatica\10.4.1\server\infa_shared\TgtFiles\raw_patient_intake_trg.out
+2025-07-30 18:23:58 : INFO : (22016 | WRITER_1_*_1) : (IS | PCIS_1041) : node01 : WRT_8222 : Target file [C:\Informatica\10.4.1\server\infa_shared\TgtFiles\raw_patient_intake_trg.out] code page: [MS Windows Latin 1 (ANSI), superset of Latin1]
+2025-07-30 18:23:58 : INFO : (22016 | WRITER_1_*_1) : (IS | PCIS_1041) : node01 : WRT_8270 : Target connection group #1 consists of target(s) [raw_patient_intake_trg]
+2025-07-30 18:23:58 : INFO : (22016 | WRITER_1_*_1) : (IS | PCIS_1041) : node01 : WRT_8003 : Writer initialization complete.
+2025-07-30 18:23:58 : INFO : (22016 | READER_1_1_1) : (IS | PCIS_1041) : node01 : BLKR_16007 : Reader run started.
+2025-07-30 18:23:58 : INFO : (22016 | WRITER_1_*_1) : (IS | PCIS_1041) : node01 : WRT_8005 : Writer run started.
+2025-07-30 18:23:58 : INFO : (22016 | WRITER_1_*_1) : (IS | PCIS_1041) : node01 : WRT_8158 : 
+
+*****START LOAD SESSION*****
+
+Load Start Time: Wed Jul 30 18:23:58 2025
+
+Target tables:
+
+     raw_patient_intake_trg
+
+
+2025-07-30 18:23:58 : INFO : (22016 | READER_1_1_1) : (IS | PCIS_1041) : node01 : FR_3076 : Skipped over [1] lines.
+2025-07-30 18:23:58 : INFO : (22016 | READER_1_1_1) : (IS | PCIS_1041) : node01 : DBG_21430 : DBG_21430 Reading data from input source file [C:\Informatica\10.4.1\server\infa_shared\SrcFiles\raw_patient_intake_src.csv] : (Wed Jul 30 18:23:58 2025)
+2025-07-30 18:23:58 : INFO : (22016 | READER_1_1_1) : (IS | PCIS_1041) : node01 : BLKR_16019 : Read [25] rows, read [0] error rows for source table [raw_patient_intake_src] instance name [raw_patient_intake_src]
+2025-07-30 18:23:58 : INFO : (22016 | READER_1_1_1) : (IS | PCIS_1041) : node01 : BLKR_16008 : Reader run completed.
+2025-07-30 18:23:58 : INFO : (22016 | TRANSF_1_1_1) : (IS | PCIS_1041) : node01 : SORT_40420 : SORT_40420 Start of input for Transformation [sorter]. : (Wed Jul 30 18:23:58 2025)
+2025-07-30 18:23:58 : INFO : (22016 | TRANSF_1_1_1) : (IS | PCIS_1041) : node01 : SORT_40421 : SORT_40421 End of input for Transformation [sorter]. : (Wed Jul 30 18:23:58 2025)
+2025-07-30 18:23:58 : INFO : (22016 | TRANSF_1_1_1) : (IS | PCIS_1041) : node01 : SORT_40422 : SORT_40422 End of output from Sorter Transformation [sorter]. Processed 25 rows (1540 input bytes; 0 temp I/O bytes). : (Wed Jul 30 18:23:58 2025)
+2025-07-30 18:23:58 : INFO : (22016 | TRANSF_1_1_1) : (IS | PCIS_1041) : node01 : SORT_40423 : SORT_40423 End of sort for Sorter Transformation [sorter]. : (Wed Jul 30 18:23:58 2025)
+2025-07-30 18:23:58 : INFO : (22016 | TRANSF_1_1_1) : (IS | PCIS_1041) : node01 : DBG_21216 : Finished transformations for Source Qualifier [SQ_raw_patient_intake_src]. Total errors [0] 
+2025-07-30 18:23:58 : INFO : (22016 | WRITER_1_*_1) : (IS | PCIS_1041) : node01 : WRT_8167 : Start loading table [raw_patient_intake_trg] at: Wed Jul 30 18:23:58 2025
+2025-07-30 18:23:59 : INFO : (22016 | WRITER_1_*_1) : (IS | PCIS_1041) : node01 : WRT_8168 : End loading table [raw_patient_intake_trg] at: Wed Jul 30 18:23:59 2025
+2025-07-30 18:23:59 : INFO : (22016 | WRITER_1_*_1) : (IS | PCIS_1041) : node01 : WRT_8035 : Load complete time: Wed Jul 30 18:23:59 2025
+
+LOAD SUMMARY
+============
+
+WRT_8036 Target: raw_patient_intake_trg (Instance Name: [raw_patient_intake_trg])
+WRT_8038 Inserted rows - Requested: 25         Applied: 25         Rejected: 0          Affected: 25        
+
+
+2025-07-30 18:23:59 : INFO : (22016 | WRITER_1_*_1) : (IS | PCIS_1041) : node01 : WRT_8043 : *****END LOAD SESSION*****
+2025-07-30 18:23:59 : INFO : (22016 | WRITER_1_*_1) : (IS | PCIS_1041) : node01 : WRT_8006 : Writer run completed.
+2025-07-30 18:23:59 : INFO : (22016 | MANAGER) : (IS | PCIS_1041) : node01 : PETL_24031 : 
+***** RUN INFO FOR TGT LOAD ORDER GROUP [1], CONCURRENT SET [1] *****
+Thread [READER_1_1_1] created for [the read stage] of partition point [SQ_raw_patient_intake_src] has completed. The total run time was insufficient for any meaningful statistics.
+Thread [TRANSF_1_1_1] created for [the transformation stage] of partition point [SQ_raw_patient_intake_src] has completed. The total run time was insufficient for any meaningful statistics.
+Thread [WRITER_1_*_1] created for [the write stage] of partition point [raw_patient_intake_trg] has completed. The total run time was insufficient for any meaningful statistics.
+
+2025-07-30 18:23:59 : INFO : (22016 | MANAGER) : (IS | PCIS_1041) : node01 : PETL_24005 : PETL_24005 Starting post-session tasks. : (Wed Jul 30 18:23:59 2025)
+2025-07-30 18:23:59 : INFO : (22016 | POST-SESS) : (IS | PCIS_1041) : node01 : PETL_24091 : Thread [POST-SESS] has the ID [8].
+2025-07-30 18:23:59 : INFO : (22016 | MANAGER) : (IS | PCIS_1041) : node01 : PETL_24029 : PETL_24029 Post-session task completed successfully. : (Wed Jul 30 18:23:59 2025)
+2025-07-30 18:23:59 : INFO : (22016 | MAPPING) : (IS | PCIS_1041) : node01 : TM_6018 : The session completed with [0] row transformation errors. 
+2025-07-30 18:23:59 : INFO : (22016 | MANAGER) : (IS | PCIS_1041) : node01 : PETL_24002 : Parallel Pipeline Engine finished.
+2025-07-30 18:23:59 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : PETL_24012 : Session run completed successfully.
+2025-07-30 18:23:59 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : TM_6022 : 
+
+SESSION LOAD SUMMARY
+================================================
+
+2025-07-30 18:23:59 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : TM_6252 : Source Load Summary.
+2025-07-30 18:23:59 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : CMN_1740 : Table: [SQ_raw_patient_intake_src] (Instance Name: [SQ_raw_patient_intake_src])
+	 Output Rows [25], Affected Rows [25], Applied Rows [25], Rejected Rows [0]
+2025-07-30 18:23:59 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : TM_6253 : Target Load Summary.
+2025-07-30 18:23:59 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : CMN_1740 : Table: [raw_patient_intake_trg] (Instance Name: [raw_patient_intake_trg])
+	 Output Rows [25], Affected Rows [25], Applied Rows [25], Rejected Rows [0]
+2025-07-30 18:23:59 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : TM_6023 : 
+===================================================
+
+2025-07-30 18:23:59 : INFO : (22016 | DIRECTOR) : (IS | PCIS_1041) : node01 : TM_6020 : Session [s_Sorting_PatientData] completed at [Wed Jul 30 18:23:59 2025].
